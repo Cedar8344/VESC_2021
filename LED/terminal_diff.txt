@@ -1,0 +1,46 @@
+2a3
+> 
+3a5
+> 
+7a10
+> 
+11a15
+> 
+37a42,44
+> //LED editing
+> #include "ledpwm.h"
+> 
+85c92,116
+< 	} else if (strcmp(argv[0], "stop") == 0) {
+---
+> 
+> //inserted code
+> 	}else if(strcmp(argv[0], "maplestory") == 0) {
+> 		commands_printf("firmware upload worked");
+> //Turn red led on
+> 	}else if(strcmp(argv[0], "lighton") == 0) {
+> 		commands_printf("Turn on red LED\n");
+>                 ledpwm_set_intensity(LED_RED, 1.0);
+> 		ledpwm_led_on(LED_RED);
+> //Turn red led off
+> 	}else if(strcmp(argv[0], "lightoff") == 0) {
+> 		commands_printf("Turn off red LED\n");
+>                 ledpwm_set_intensity(LED_RED, 0.0);
+> 		ledpwm_led_off(LED_RED);
+> //blink red led
+> 	}else if (strcmp(argv[0], "blinkred") == 0) {
+> 		commands_printf("Blink red led 10 times\n");
+> 		for (int i = 0;i < 10 ;i++) {
+>                                 ledpwm_set_intensity(LED_RED, 1.0);
+>                                 chThdSleepMilliseconds(250);
+>                                 ledpwm_set_intensity(LED_RED, 0.0);
+>                                 chThdSleepMilliseconds(250);
+>                  }
+> 
+> 	}else if (strcmp(argv[0], "stop") == 0) {
+1282c1313,1314
+< }
+\ No newline at end of file
+---
+> }
+> 
