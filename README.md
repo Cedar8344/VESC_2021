@@ -1,2 +1,2 @@
 # VESC_2021
-Summer 2021 Study
+Summer 2021 internship
